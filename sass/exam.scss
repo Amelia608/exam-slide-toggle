@@ -1,0 +1,105 @@
+@import 'mui/variables';
+@import 'mui/mixins';
+@import 'extend';
+
+
+$main-color:#37c0e4;
+$title-color:#626262;//mui-bar  title color
+$color-back:#7b7b7b;//mui action back color
+$bg-bar:#f8f8f8;//mui bar background color 
+$main-bg:#24c2f2;
+body{
+    font-size: 14px;
+    color: #686868;
+}
+
+ul{
+    list-style:none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.mui-action-back {
+    color: $color-back;
+}
+.mui-bar {
+    background: $bg-bar;
+}
+.mui-bar .mui-title {
+    color:$title-color;
+}
+
+.swiper-container {
+    width: 100%;
+    height:500px;
+    padding:10px 15px;
+    box-sizing: border-box;
+}
+
+.swiper-slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+.exam-item-title{
+    @extend %flx-between;
+    width: 100%;
+    @extend %bg-fff;
+    padding: 10px 15px;
+    @extend %box-sizing;
+    .left-title{
+        @extend %c-main;
+    }
+    .current-num{
+        @extend %c-main;
+    }
+    .total-num{
+        @extend %c-gray;
+    }
+}
+.exam-item{
+    .exam-title{
+        @extend %c-gray;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .answer-view-item{
+        @extend %c-gray;
+        @extend %pos-re;
+        padding-left: 25px;
+        padding-top:5px;
+        padding-bottom: 5px;
+    }
+    .answer-view li{
+        &:nth-child(1):before{
+            content: "A"
+        }
+        &:nth-child(2):before{
+            content: "B"
+        }
+        &:nth-child(3):before{
+            content: "C"
+        }
+        &:nth-child(4):before{
+            content: "D"
+        }
+        &:before{
+            @extend %pos-ab;
+            left: 0;
+            top:5px;
+            width: 22px;
+            height: 22px;
+            @include border-radius(50%);
+            // @extend %bg-main;
+            @extend %box-sizing;
+            @extend %text-center;
+            border:1px solid $main-color;
+            line-height: 20px;
+        }
+        &.checked::before{
+            color:#fff;
+            background:  $main-color;
+        }
+    }
+}

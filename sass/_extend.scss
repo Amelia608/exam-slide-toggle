@@ -1,0 +1,165 @@
+// Mixin
+@mixin translateX($translatex) {
+    -moz-transform: translateX($translatex);
+    -webkit-transform: translateX($translatex);
+    -ms-transform: translateX($translatex);
+    -o-transform: translateX($translatex);
+    transform: translateX($translatex);
+}
+
+@mixin translateY($translatey){
+    -moz-transform: translateY($translatey);
+    -webkit-transform: translateY($translatey);
+    -o-transform: translateY($translatey);
+    transform: translateY($translatey);
+}
+@mixin translate($translatex,$translatey){
+    -moz-transform: translate($translatex,$translatey);
+    -webkit-transform: translate($translatex,$translatey);
+    -o-transform: translate($translatex,$translatey);
+    transform: translate($translatex,$translatey);
+}
+@mixin skewX($skewx){
+    -moz-transform: skewX($skewx);
+    -webkit-transform: skewX($skewx);
+    -o-transform: skewX($skewx);
+    transform: skewX($skewx);
+}
+@mixin scaleY($scaley){
+    transform: scaleY($scaley);
+    -webkit-transform: scaleY($scaley);
+    -moz-transform: scaleY($scaley);
+    -o-transform: scaleY($scaley);
+}
+@mixin scale($scale){
+    transform: scale($scale);
+    -webkit-transform:scale($scale);
+    -moz-transform: scale($scale);
+    -o-transform: scale($scale);
+}
+@mixin transition($transition) {
+    -moz-transition:    all  $transition ease;
+    -o-transition:      all  $transition ease;
+    -webkit-transition: all  $transition ease;
+    -ms-transition:     all  $transition ease;
+    transition:         all  $transition ease;
+}
+@mixin inline-block() {
+    display:-moz-inline-stack;
+    display:inline-block;
+    zoom:1;
+    *display:inline;
+}
+@mixin flex() {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+@mixin flex() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+@mixin flexwrap() {
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+}
+
+//aviriable
+$main-color:#37c0e4;
+$title-color:#626262;//mui-bar  title color
+$color-back:#7b7b7b;//mui action back color
+$bg-bar:#f8f8f8;//mui bar background color 
+$main-bg:#24c2f2;
+
+
+
+// position absolute center
+%ab-x{
+    position: absolute;
+    left: 50%;
+    @include translateX(-50%);
+}
+%ab-y{
+    position: absolute;
+    top:50%;
+    @include translateY(-50%);
+}
+%ab-xy{
+    @extend %pos-ab;
+    top:50%;
+    left:50%;
+    @include translate(-50%,-50%);
+}
+%flx-between{
+    @include flex();
+    justify-content: space-between;
+}
+
+
+// position
+%pos-ab{
+    position: absolute;
+}
+%pos-re{
+    position: relative;
+}
+%pos-fix{
+    position: fixed;
+}
+
+// display
+%dly-table{
+    display: table;
+}
+%dly-table-cell{
+    display: table-cell;
+}
+%dly-inline-block{
+    display: inline-block;
+}
+%dly-block{
+    display: block;
+}
+
+// color
+%c-fff{
+    color:#fff;
+}
+%c-main{
+    color: $main-color;//blue color
+}
+
+%c-gray{
+    color: #686868;
+}
+
+// bg
+%bg-main{
+    background:$main-bg;
+}
+%bg-fff{
+    background:#fff;
+}
+
+%box-sizing{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+%text-center{
+    text-align: center;
+}
